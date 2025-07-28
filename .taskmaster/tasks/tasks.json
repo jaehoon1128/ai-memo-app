@@ -1,0 +1,942 @@
+{
+  "master": {
+    "tasks": [
+      {
+        "id": 1,
+        "title": "프로젝트 초기 설정 및 환경 구성",
+        "description": "Next.js 14 프로젝트 생성, TypeScript 설정, 기본 디렉토리 구조 설정 및 필요한 패키지 설치",
+        "details": "Next.js 14 App Router를 사용하여 프로젝트를 설정합니다. TypeScript, ESLint, Prettier를 구성하고, Tailwind CSS를 설치합니다. 프로젝트 구조는 app/ 디렉토리 내에 페이지 라우팅을 설정하고, components/, lib/, utils/ 등의 폴더 구조를 만듭니다. 필요한 패키지: next@14.0.3, react@18.2.0, react-dom@18.2.0, typescript@5.2.2, tailwindcss@3.3.5, postcss@8.4.31, autoprefixer@10.4.16, eslint@8.54.0, prettier@3.1.0, shadcn/ui 또는 Radix UI 컴포넌트 라이브러리를 설치합니다. 상태 관리를 위한 Zustand(v4.4.6)도 설치합니다.",
+        "testStrategy": "프로젝트가 올바르게 설정되었는지 확인하기 위해 'npm run dev' 명령으로 개발 서버를 실행하고, 기본 페이지가 렌더링되는지 확인합니다. TypeScript 설정이 올바른지 확인하기 위해 간단한 타입 정의를 테스트합니다. ESLint와 Prettier가 제대로 작동하는지 확인합니다.",
+        "priority": "high",
+        "dependencies": [],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Next.js 14 프로젝트 생성 및 기본 설정",
+            "description": "Next.js 14 App Router를 사용하여 새 프로젝트를 생성하고 TypeScript 설정을 완료합니다.",
+            "dependencies": [],
+            "details": "create-next-app을 사용하여 Next.js 14 프로젝트를 생성하고, TypeScript 옵션을 활성화합니다. tsconfig.json 파일을 검토하고 필요한 설정을 추가합니다. next.config.js 파일을 설정하여 App Router를 활성화하고 기본 설정을 구성합니다.",
+            "status": "pending",
+            "testStrategy": "'npm run dev' 명령으로 개발 서버를 실행하여 기본 페이지가 정상적으로 렌더링되는지 확인합니다. TypeScript 컴파일이 오류 없이 완료되는지 테스트합니다."
+          },
+          {
+            "id": 2,
+            "title": "ESLint, Prettier 및 코드 품질 도구 설정",
+            "description": "ESLint와 Prettier를 설정하여 코드 품질과 일관성을 유지합니다.",
+            "dependencies": [
+              "1.1"
+            ],
+            "details": "ESLint 8.54.0과 Prettier 3.1.0을 설치하고 설정 파일을 생성합니다. Next.js와 TypeScript에 최적화된 ESLint 규칙을 설정하고, Prettier와의 충돌을 방지하는 설정을 추가합니다. VS Code 설정 파일을 생성하여 자동 포맷팅을 활성화합니다.",
+            "status": "pending",
+            "testStrategy": "의도적으로 코드 스타일 오류를 만들어 ESLint가 감지하는지 확인합니다. Prettier가 코드를 자동으로 포맷팅하는지 테스트합니다."
+          },
+          {
+            "id": 3,
+            "title": "Tailwind CSS 및 PostCSS 설정",
+            "description": "Tailwind CSS 3.3.5를 설치하고 PostCSS와 함께 설정합니다.",
+            "dependencies": [
+              "1.1"
+            ],
+            "details": "Tailwind CSS 3.3.5, PostCSS 8.4.31, Autoprefixer 10.4.16을 설치합니다. tailwind.config.js와 postcss.config.js 파일을 생성하고 설정합니다. globals.css 파일에 Tailwind 지시문을 추가하고, 커스텀 CSS 변수를 정의합니다.",
+            "status": "pending",
+            "testStrategy": "간단한 Tailwind 클래스를 사용하여 스타일이 올바르게 적용되는지 확인합니다. 빌드 과정에서 CSS가 정상적으로 생성되는지 테스트합니다."
+          },
+          {
+            "id": 4,
+            "title": "프로젝트 디렉토리 구조 및 기본 컴포넌트 생성",
+            "description": "app/ 디렉토리 구조를 설정하고 components/, lib/, utils/ 폴더를 생성합니다.",
+            "dependencies": [
+              "1.1"
+            ],
+            "details": "app/ 디렉토리 내에 페이지 라우팅 구조를 설정하고, components/, lib/, utils/, types/ 폴더를 생성합니다. 기본 레이아웃 컴포넌트와 공통 컴포넌트들을 생성합니다. 절대 경로 import를 위한 path mapping을 tsconfig.json에 설정합니다.",
+            "status": "pending",
+            "testStrategy": "각 디렉토리가 올바르게 생성되었는지 확인하고, 절대 경로 import가 정상적으로 작동하는지 테스트합니다. 기본 컴포넌트들이 렌더링되는지 확인합니다."
+          },
+          {
+            "id": 5,
+            "title": "필수 패키지 설치 및 상태 관리 라이브러리 설정",
+            "description": "shadcn/ui, Zustand 등 필요한 패키지들을 설치하고 기본 설정을 완료합니다.",
+            "dependencies": [
+              "1.2",
+              "1.3"
+            ],
+            "details": "shadcn/ui 또는 Radix UI 컴포넌트 라이브러리를 설치하고 설정합니다. Zustand v4.4.6을 설치하여 상태 관리를 위한 기본 스토어를 생성합니다. 필요한 React 관련 패키지들(react@18.2.0, react-dom@18.2.0)이 올바른 버전으로 설치되었는지 확인합니다.",
+            "status": "pending",
+            "testStrategy": "설치된 모든 패키지가 올바르게 import되고 사용할 수 있는지 확인합니다. Zustand 스토어가 정상적으로 작동하는지 테스트합니다. shadcn/ui 컴포넌트가 렌더링되는지 확인합니다."
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Supabase 데이터베이스 및 DrizzleORM 설정",
+        "description": "Supabase PostgreSQL 데이터베이스 설정 및 DrizzleORM을 사용한 데이터 모델 정의",
+        "details": "DrizzleORM(v0.29.0)을 설치하고 Supabase PostgreSQL 데이터베이스와 연결합니다. PRD에 정의된 User, Memo, Tag 모델을 DrizzleORM 스키마로 구현합니다. 각 모델 간의 관계(1:N, N:M)를 올바르게 설정하고, 인덱스를 추가하여 검색 성능을 최적화합니다. Drizzle Kit을 사용하여 마이그레이션 스크립트를 작성하고, 데이터베이스 클라이언트를 생성합니다. Supabase 프로젝트를 생성하고 환경 변수를 설정합니다. 전체 텍스트 검색을 위한 인덱스도 설정합니다.",
+        "testStrategy": "Drizzle Studio를 사용하여 데이터 모델이 올바르게 생성되었는지 확인합니다. 테스트 데이터를 삽입하고 관계가 제대로 작동하는지 확인합니다. 마이그레이션이 오류 없이 실행되는지 테스트합니다. 기본적인 CRUD 작업을 테스트하여 DrizzleORM 클라이언트가 올바르게 작동하는지 확인합니다.",
+        "priority": "high",
+        "dependencies": [
+          1
+        ],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Supabase 프로젝트 생성 및 환경 변수 설정",
+            "description": "Supabase 프로젝트를 생성하고 데이터베이스 연결을 위한 환경 변수를 설정합니다.",
+            "dependencies": [],
+            "details": "Supabase 웹사이트에서 새 프로젝트를 생성하고, PostgreSQL 데이터베이스를 설정합니다. 프로젝트 URL과 anon key를 .env.local 파일에 추가하고, 데이터베이스 연결 문자열을 구성합니다. Supabase 대시보드에서 데이터베이스 설정을 확인하고 접근 권한을 설정합니다.",
+            "status": "pending",
+            "testStrategy": "Supabase 대시보드에 접속하여 프로젝트가 정상적으로 생성되었는지 확인합니다. 환경 변수가 올바르게 설정되었는지 확인하고, 데이터베이스 연결 테스트를 수행합니다."
+          },
+          {
+            "id": 2,
+            "title": "DrizzleORM 및 관련 패키지 설치",
+            "description": "DrizzleORM v0.29.0과 PostgreSQL 어댑터, Drizzle Kit을 설치합니다.",
+            "dependencies": [],
+            "details": "npm을 사용하여 drizzle-orm@0.29.0, drizzle-kit, @types/pg, pg 패키지를 설치합니다. PostgreSQL 드라이버와 DrizzleORM PostgreSQL 어댑터를 설정하고, drizzle.config.ts 파일을 생성하여 데이터베이스 연결 설정을 구성합니다.",
+            "status": "pending",
+            "testStrategy": "패키지가 올바르게 설치되었는지 package.json을 확인합니다. drizzle.config.ts 파일이 올바르게 구성되었는지 확인하고, 기본적인 DrizzleORM 연결 테스트를 수행합니다."
+          },
+          {
+            "id": 3,
+            "title": "데이터베이스 스키마 정의 (User, Memo, Tag 모델)",
+            "description": "PRD에 정의된 User, Memo, Tag 모델을 DrizzleORM 스키마로 구현합니다.",
+            "dependencies": [
+              "2.2"
+            ],
+            "details": "lib/db/schema.ts 파일을 생성하고 User, Memo, Tag 테이블 스키마를 정의합니다. User 테이블(id, email, name, created_at), Memo 테이블(id, title, content, user_id, created_at, updated_at), Tag 테이블(id, name, color), MemoTag 중간 테이블(memo_id, tag_id)을 DrizzleORM 문법으로 구현합니다. 각 필드의 타입, 제약조건, 기본값을 설정합니다.",
+            "status": "pending",
+            "testStrategy": "스키마 파일이 올바르게 정의되었는지 TypeScript 컴파일 오류가 없는지 확인합니다. DrizzleORM의 스키마 검증 기능을 사용하여 테이블 정의가 올바른지 확인합니다."
+          },
+          {
+            "id": 4,
+            "title": "테이블 관계 설정 및 인덱스 추가",
+            "description": "모델 간의 관계(1:N, N:M)를 설정하고 검색 성능 최적화를 위한 인덱스를 추가합니다.",
+            "dependencies": [
+              "2.3"
+            ],
+            "details": "User와 Memo 간의 1:N 관계, Memo와 Tag 간의 N:M 관계를 DrizzleORM relations로 정의합니다. 외래키 제약조건을 설정하고, 검색 성능 향상을 위해 user_id, created_at, title 필드에 인덱스를 추가합니다. 전체 텍스트 검색을 위한 GIN 인덱스를 memo 테이블의 title과 content 필드에 설정합니다.",
+            "status": "pending",
+            "testStrategy": "관계 설정이 올바르게 작동하는지 확인하기 위해 테스트 쿼리를 실행합니다. 인덱스가 올바르게 생성되었는지 PostgreSQL의 EXPLAIN 명령을 사용하여 확인합니다."
+          },
+          {
+            "id": 5,
+            "title": "마이그레이션 스크립트 생성 및 데이터베이스 클라이언트 설정",
+            "description": "Drizzle Kit을 사용하여 마이그레이션을 생성하고 데이터베이스 클라이언트를 구성합니다.",
+            "dependencies": [
+              "2.4"
+            ],
+            "details": "drizzle-kit generate 명령을 사용하여 마이그레이션 파일을 생성합니다. lib/db/index.ts 파일을 생성하여 DrizzleORM 데이터베이스 클라이언트를 설정하고, Supabase PostgreSQL과의 연결을 구성합니다. 마이그레이션을 실행하여 Supabase 데이터베이스에 테이블을 생성합니다. Drizzle Studio 설정을 추가하여 데이터베이스를 시각적으로 관리할 수 있도록 합니다.",
+            "status": "pending",
+            "testStrategy": "마이그레이션이 오류 없이 실행되는지 확인합니다. Supabase 대시보드에서 테이블이 올바르게 생성되었는지 확인합니다. Drizzle Studio를 실행하여 데이터 모델이 정확히 표시되는지 확인하고, 기본적인 CRUD 작업을 테스트합니다."
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "title": "Supabase Auth 인증 시스템 구현",
+        "description": "Supabase Auth를 사용한 사용자 인증 시스템 구현 (로그인, 회원가입, 세션 관리)",
+        "details": "Supabase 클라이언트를 설치하고 Supabase Auth를 설정합니다. 이메일/비밀번호 인증을 구현하고, Supabase의 내장 인증 시스템을 활용합니다. JWT 토큰 기반 인증이 자동으로 처리되며, 세션 관리 로직을 구현합니다. 로그인, 회원가입, 로그아웃 기능을 Supabase Auth API를 사용하여 구현합니다. 인증된 사용자만 접근할 수 있는 보호된 라우트를 설정하고, 미들웨어를 사용하여 인증 상태를 확인합니다. 사용자 프로필 정보를 Supabase 데이터베이스에 저장하고 관리하는 API도 구현합니다.",
+        "testStrategy": "다양한 시나리오(유효한 자격 증명, 잘못된 자격 증명, 세션 만료 등)에서 인증 흐름을 테스트합니다. 보호된 라우트에 인증되지 않은 사용자가 접근할 수 없는지 확인합니다. Supabase Auth의 보안 기능이 올바르게 작동하는지 테스트합니다. 세션 지속성과 토큰 갱신이 제대로 작동하는지 확인합니다.",
+        "priority": "high",
+        "dependencies": [
+          1,
+          2
+        ],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Supabase 클라이언트 설치 및 기본 설정",
+            "description": "Supabase 클라이언트를 설치하고 기본 인증 설정을 구성합니다.",
+            "dependencies": [],
+            "details": "@supabase/supabase-js(v2.38.0)를 설치하고 필요한 의존성을 추가합니다. Supabase 프로젝트를 생성하고 환경 변수(NEXT_PUBLIC_SUPABASE_URL, NEXT_PUBLIC_SUPABASE_ANON_KEY 등)를 구성합니다. Supabase 클라이언트를 초기화하고, 기본 인증 옵션(세션 전략, 쿠키 설정 등)을 구성합니다.",
+            "status": "pending",
+            "testStrategy": "Supabase 클라이언트가 올바르게 설치되었는지 확인하고, 환경 변수가 제대로 로드되는지 테스트합니다. Supabase 프로젝트와 올바르게 연결되는지 확인합니다."
+          },
+          {
+            "id": 2,
+            "title": "이메일/비밀번호 인증 구현",
+            "description": "이메일과 비밀번호를 사용한 사용자 인증 기능을 구현합니다.",
+            "dependencies": [
+              "3.1"
+            ],
+            "details": "Supabase Auth의 signUp, signIn, signOut 메서드를 사용하여 이메일/비밀번호 인증을 구현합니다. 사용자 등록 및 로그인 API 라우트를 개발하고, Supabase의 내장 보안 기능을 활용합니다. 사용자 입력 유효성 검사를 추가하고, 로그인 실패 시 적절한 오류 메시지를 표시합니다.",
+            "status": "pending",
+            "testStrategy": "유효한 자격 증명과 잘못된 자격 증명으로 로그인을 테스트합니다. Supabase Auth의 보안 기능이 올바르게 작동하는지 확인하고, 입력 유효성 검사가 제대로 작동하는지 테스트합니다."
+          },
+          {
+            "id": 3,
+            "title": "JWT 토큰 기반 세션 관리 구현",
+            "description": "JWT 토큰을 사용한 세션 관리 및 인증 상태 유지 기능을 구현합니다.",
+            "dependencies": [
+              "3.1",
+              "3.2"
+            ],
+            "details": "Supabase Auth의 자동 JWT 토큰 관리를 활용하고, 토큰 만료 시간 및 갱신 로직을 설정합니다. 세션 콜백을 구현하여 사용자 정보를 세션에 포함시키고, 클라이언트 측에서 useSession 훅을 사용하여 인증 상태를 확인하는 로직을 구현합니다.",
+            "status": "pending",
+            "testStrategy": "세션이 올바르게 생성되고 유지되는지 테스트합니다. 토큰 만료 및 갱신 로직이 제대로 작동하는지 확인하고, 클라이언트에서 인증 상태가 올바르게 표시되는지 테스트합니다."
+          },
+          {
+            "id": 4,
+            "title": "보호된 라우트 및 미들웨어 구현",
+            "description": "인증된 사용자만 접근할 수 있는 보호된 라우트와 인증 확인 미들웨어를 구현합니다.",
+            "dependencies": [
+              "3.3"
+            ],
+            "details": "Next.js 미들웨어를 사용하여 Supabase Auth 상태를 확인하고, 인증되지 않은 사용자를 로그인 페이지로 리디렉션하는 로직을 구현합니다. 클라이언트 컴포넌트에서 인증 상태에 따라 UI를 조건부로 렌더링하는 래퍼 컴포넌트를 만들고, 서버 컴포넌트에서 인증 상태를 확인하는 유틸리티 함수를 구현합니다.",
+            "status": "pending",
+            "testStrategy": "인증되지 않은 사용자가 보호된 라우트에 접근할 때 올바르게 리디렉션되는지 테스트합니다. 인증된 사용자만 보호된 콘텐츠를 볼 수 있는지 확인하고, 미들웨어가 다양한 라우트에서 올바르게 작동하는지 테스트합니다."
+          },
+          {
+            "id": 5,
+            "title": "사용자 프로필 관리 API 구현",
+            "description": "사용자 프로필 정보를 조회, 수정, 삭제할 수 있는 API를 구현합니다.",
+            "dependencies": [
+              "3.3",
+              "3.4"
+            ],
+            "details": "사용자 프로필 정보를 조회하는 GET API, 프로필을 수정하는 PUT API, 계정을 삭제하는 DELETE API를 구현합니다. 프로필 이미지 업로드 기능을 추가하고, 비밀번호 변경 로직을 Supabase Auth API를 사용하여 구현합니다. 사용자 설정(알림 기본 설정, UI 기본 설정 등)을 Supabase 데이터베이스에 저장하고 관리하는 API도 구현합니다.",
+            "status": "pending",
+            "testStrategy": "프로필 정보가 올바르게 조회, 수정, 삭제되는지 테스트합니다. 비밀번호 변경 로직이 안전하게 작동하는지 확인하고, 프로필 이미지 업로드가 제대로 처리되는지 테스트합니다. 인증되지 않은 사용자가 API에 접근할 수 없는지 확인합니다."
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "title": "메모 CRUD API 구현",
+        "description": "메모 생성, 조회, 수정, 삭제를 위한 API 엔드포인트 구현",
+        "details": "DrizzleORM을 사용하여 메모 CRUD API를 구현합니다. Next.js API Routes를 사용하여 POST /api/memos (생성), GET /api/memos (목록 조회), GET /api/memos/[id] (상세 조회), PUT /api/memos/[id] (수정), DELETE /api/memos/[id] (삭제) 엔드포인트를 구현합니다. Supabase 데이터베이스와 연결하여 데이터를 저장하고, 사용자 인증 상태를 확인하여 권한을 검증합니다. 페이지네이션, 정렬, 필터링 기능도 포함합니다.",
+        "testStrategy": "각 CRUD 작업이 올바르게 작동하는지 테스트합니다. 인증되지 않은 사용자가 API에 접근할 수 없는지 확인합니다. 데이터베이스에 데이터가 올바르게 저장되고 조회되는지 확인합니다. 페이지네이션과 필터링이 제대로 작동하는지 테스트합니다.",
+        "priority": "high",
+        "dependencies": [
+          2,
+          3
+        ],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "메모 생성 API 엔드포인트 구현",
+            "description": "POST /api/memos 엔드포인트를 구현하여 새로운 메모를 생성하는 기능 개발",
+            "dependencies": [],
+            "details": "DrizzleORM과 Supabase를 연결하여 메모 생성 API를 구현합니다. 사용자 인증 상태를 확인하고, 요청 본문에서 메모 데이터(제목, 내용, 태그 등)를 추출하여 유효성을 검사합니다. 유효한 데이터인 경우 DrizzleORM을 사용하여 Supabase 데이터베이스에 메모를 저장하고, 생성된 메모 정보와 함께 성공 응답을 반환합니다. 오류 처리 및 예외 상황에 대한 적절한 응답도 구현합니다.",
+            "status": "pending",
+            "testStrategy": "인증된 사용자와 인증되지 않은 사용자의 API 접근 테스트, 유효한 데이터와 유효하지 않은 데이터로 요청 시 응답 확인, 데이터베이스에 메모가 올바르게 저장되는지 검증, 오류 상황에서 적절한 상태 코드와 메시지 반환 여부 테스트"
+          },
+          {
+            "id": 2,
+            "title": "메모 조회 API 엔드포인트 구현",
+            "description": "GET /api/memos 및 GET /api/memos/[id] 엔드포인트를 구현하여 메모 목록 및 상세 조회 기능 개발",
+            "dependencies": [
+              "4.1"
+            ],
+            "details": "메모 목록 조회(GET /api/memos)와 상세 조회(GET /api/memos/[id]) API를 구현합니다. 목록 조회 시 페이지네이션(limit, offset 파라미터), 정렬(sort 파라미터), 필터링(filter 파라미터) 기능을 지원합니다. 사용자 인증 상태를 확인하여 해당 사용자의 메모만 반환하도록 구현하고, 상세 조회 시 메모 ID를 기반으로 특정 메모의 모든 정보를 반환합니다. 존재하지 않는 메모 ID 요청 시 적절한 오류 응답을 반환합니다.",
+            "status": "pending",
+            "testStrategy": "페이지네이션, 정렬, 필터링 기능이 올바르게 작동하는지 테스트, 인증된 사용자가 자신의 메모만 조회할 수 있는지 확인, 존재하지 않는 메모 ID 요청 시 404 응답 반환 여부 테스트, 대량의 메모 데이터에서 성능 테스트"
+          },
+          {
+            "id": 3,
+            "title": "메모 수정 API 엔드포인트 구현",
+            "description": "PUT /api/memos/[id] 엔드포인트를 구현하여 기존 메모를 수정하는 기능 개발",
+            "dependencies": [
+              "4.1",
+              "4.2"
+            ],
+            "details": "PUT /api/memos/[id] 엔드포인트를 구현하여 기존 메모를 수정하는 기능을 개발합니다. 요청 경로에서 메모 ID를 추출하고, 요청 본문에서 수정할 메모 데이터를 추출합니다. 사용자 인증 상태를 확인하고, 해당 메모의 소유자인지 검증합니다. DrizzleORM을 사용하여 데이터베이스의 메모 정보를 업데이트하고, 수정된 메모 정보를 응답으로 반환합니다. 존재하지 않는 메모나 권한이 없는 경우 적절한 오류 응답을 반환합니다.",
+            "status": "pending",
+            "testStrategy": "인증된 사용자가 자신의 메모만 수정할 수 있는지 확인, 다른 사용자의 메모 수정 시도 시 403 응답 반환 여부 테스트, 존재하지 않는 메모 ID로 요청 시 404 응답 반환 여부 테스트, 유효하지 않은 데이터로 요청 시 400 응답 반환 여부 테스트"
+          },
+          {
+            "id": 4,
+            "title": "메모 삭제 API 엔드포인트 구현",
+            "description": "DELETE /api/memos/[id] 엔드포인트를 구현하여 메모를 삭제하는 기능 개발",
+            "dependencies": [
+              "4.1",
+              "4.2"
+            ],
+            "details": "DELETE /api/memos/[id] 엔드포인트를 구현하여 메모를 삭제하는 기능을 개발합니다. 요청 경로에서 메모 ID를 추출하고, 사용자 인증 상태를 확인합니다. 해당 메모의 소유자인지 검증한 후, DrizzleORM을 사용하여 데이터베이스에서 메모를 삭제합니다. 삭제 성공 시 적절한 성공 응답을 반환하고, 존재하지 않는 메모나 권한이 없는 경우 적절한 오류 응답을 반환합니다. 소프트 삭제(삭제 플래그 설정)와 하드 삭제(실제 레코드 삭제) 옵션을 모두 지원합니다.",
+            "status": "pending",
+            "testStrategy": "인증된 사용자가 자신의 메모만 삭제할 수 있는지 확인, 다른 사용자의 메모 삭제 시도 시 403 응답 반환 여부 테스트, 존재하지 않는 메모 ID로 요청 시 404 응답 반환 여부 테스트, 삭제 후 해당 메모가 더 이상 조회되지 않는지 확인"
+          },
+          {
+            "id": 5,
+            "title": "API 공통 기능 및 최적화 구현",
+            "description": "오류 처리, 인증 미들웨어, 캐싱, 속도 최적화 등 API 공통 기능 구현",
+            "dependencies": [
+              "4.1",
+              "4.2",
+              "4.3",
+              "4.4"
+            ],
+            "details": "모든 API 엔드포인트에서 공통으로 사용되는 기능을 구현합니다. 일관된 오류 처리 및 응답 형식을 정의하고, 인증 상태 확인을 위한 미들웨어를 구현합니다. API 응답 캐싱을 통해 성능을 최적화하고, 데이터베이스 쿼리 최적화를 통해 응답 속도를 개선합니다. 요청 속도 제한(rate limiting)을 구현하여 API 남용을 방지하고, API 사용량 모니터링 및 로깅 기능을 추가합니다. CORS 설정을 통해 허용된 도메인에서만 API에 접근할 수 있도록 구성합니다.",
+            "status": "pending",
+            "testStrategy": "다양한 오류 상황에서 일관된 응답 형식 반환 여부 테스트, 인증 미들웨어가 올바르게 작동하는지 확인, 캐싱 기능이 응답 속도를 개선하는지 측정, 대량의 요청에서 API 성능 테스트, 속도 제한 기능이 올바르게 작동하는지 확인"
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "title": "메모 UI 컴포넌트 개발",
+        "description": "메모 작성, 조회, 수정, 삭제를 위한 UI 컴포넌트 개발",
+        "details": "React와 TailwindCSS를 사용하여 메모 관련 UI 컴포넌트를 개발합니다. 메모 작성 폼, 메모 목록, 메모 상세 보기, 메모 편집 폼 등의 컴포넌트를 구현합니다. shadcn/ui 또는 Radix UI를 사용하여 접근성이 좋은 컴포넌트를 만들고, 반응형 디자인을 적용합니다. 상태 관리를 위해 Zustand를 사용하고, Supabase 클라이언트를 통해 API와 통신합니다.",
+        "testStrategy": "모든 UI 컴포넌트가 올바르게 렌더링되는지 확인합니다. 반응형 디자인이 다양한 화면 크기에서 작동하는지 테스트합니다. 사용자 상호작용(클릭, 입력 등)이 예상대로 작동하는지 확인합니다. 접근성 표준을 준수하는지 테스트합니다.",
+        "priority": "high",
+        "dependencies": [
+          1,
+          4
+        ],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "메모 작성 폼 컴포넌트 개발",
+            "description": "사용자가 새로운 메모를 작성할 수 있는 폼 컴포넌트 구현",
+            "dependencies": [],
+            "details": "React와 TailwindCSS를 사용하여 메모 작성 폼 컴포넌트를 개발합니다. shadcn/ui 또는 Radix UI의 Form, Input, TextArea, Button 컴포넌트를 활용하여 접근성이 좋은 폼을 구현합니다. 제목, 내용, 태그 등의 입력 필드와 저장 버튼을 포함합니다. Zustand를 사용하여 폼 상태를 관리하고, 폼 제출 시 Supabase 클라이언트를 통해 API와 통신합니다. 입력 유효성 검사 및 오류 메시지 표시 기능을 구현합니다. 반응형 디자인을 적용하여 모바일 환경에서도 사용하기 편리하게 만듭니다.",
+            "status": "pending",
+            "testStrategy": "컴포넌트가 올바르게 렌더링되는지 확인합니다. 모든 입력 필드가 예상대로 작동하는지 테스트합니다. 유효성 검사가 올바르게 작동하는지 확인합니다. 폼 제출 시 API 호출이 정상적으로 이루어지는지 테스트합니다. 다양한 화면 크기에서 반응형 디자인이 올바르게 적용되는지 확인합니다."
+          },
+          {
+            "id": 2,
+            "title": "메모 목록 컴포넌트 개발",
+            "description": "사용자의 모든 메모를 목록 형태로 표시하는 컴포넌트 구현",
+            "dependencies": [
+              "5.1"
+            ],
+            "details": "React와 TailwindCSS를 사용하여 메모 목록 컴포넌트를 개발합니다. 각 메모 항목은 제목, 내용 미리보기, 생성 날짜, 태그 등을 표시합니다. shadcn/ui 또는 Radix UI의 Card, List 컴포넌트를 활용하여 일관된 디자인을 적용합니다. 페이지네이션, 정렬, 검색, 필터링 기능을 구현하여 사용자가 쉽게 메모를 찾을 수 있도록 합니다. Zustand를 사용하여 목록 상태를 관리하고, Supabase 클라이언트를 통해 API에서 메모 데이터를 가져옵니다. 그리드 및 리스트 뷰 전환 기능을 추가하고, 반응형 디자인을 적용합니다.",
+            "status": "pending",
+            "testStrategy": "컴포넌트가 올바르게 렌더링되는지 확인합니다. 메모 데이터가 정확하게 표시되는지 테스트합니다. 페이지네이션, 정렬, 검색, 필터링 기능이 예상대로 작동하는지 확인합니다. 다양한 화면 크기에서 반응형 디자인이 올바르게 적용되는지 테스트합니다. 그리드 및 리스트 뷰 전환이 정상적으로 작동하는지 확인합니다."
+          },
+          {
+            "id": 3,
+            "title": "메모 상세 보기 컴포넌트 개발",
+            "description": "선택한 메모의 상세 내용을 표시하는 컴포넌트 구현",
+            "dependencies": [
+              "5.2"
+            ],
+            "details": "React와 TailwindCSS를 사용하여 메모 상세 보기 컴포넌트를 개발합니다. 메모의 제목, 전체 내용, 생성 및 수정 날짜, 태그 등을 표시합니다. shadcn/ui 또는 Radix UI의 Dialog, Card 컴포넌트를 활용하여 모달 또는 전체 페이지 형태로 구현합니다. 편집 및 삭제 버튼을 포함하여 사용자가 메모를 관리할 수 있도록 합니다. Markdown 또는 서식 있는 텍스트 지원 기능을 추가하여 메모 내용을 보기 좋게 표시합니다. Zustand를 사용하여 상태를 관리하고, Supabase 클라이언트를 통해 API에서 메모 데이터를 가져옵니다. 반응형 디자인을 적용합니다.",
+            "status": "pending",
+            "testStrategy": "컴포넌트가 올바르게 렌더링되는지 확인합니다. 메모 데이터가 정확하게 표시되는지 테스트합니다. 편집 및 삭제 버튼이 예상대로 작동하는지 확인합니다. Markdown 또는 서식 있는 텍스트가 올바르게 렌더링되는지 테스트합니다. 다양한 화면 크기에서 반응형 디자인이 올바르게 적용되는지 확인합니다."
+          },
+          {
+            "id": 4,
+            "title": "메모 편집 폼 컴포넌트 개발",
+            "description": "기존 메모를 수정할 수 있는 폼 컴포넌트 구현",
+            "dependencies": [
+              "5.3"
+            ],
+            "details": "React와 TailwindCSS를 사용하여 메모 편집 폼 컴포넌트를 개발합니다. 메모 작성 폼을 기반으로 하되, 기존 메모 데이터를 불러와 폼에 미리 채워 넣는 기능을 추가합니다. shadcn/ui 또는 Radix UI의 Form, Input, TextArea, Button 컴포넌트를 활용하여 접근성이 좋은 폼을 구현합니다. 제목, 내용, 태그 등의 입력 필드와 저장 및 취소 버튼을 포함합니다. Zustand를 사용하여 폼 상태를 관리하고, 폼 제출 시 Supabase 클라이언트를 통해 API와 통신합니다. 입력 유효성 검사 및 오류 메시지 표시 기능을 구현합니다. 반응형 디자인을 적용합니다.",
+            "status": "pending",
+            "testStrategy": "컴포넌트가 올바르게 렌더링되는지 확인합니다. 기존 메모 데이터가 폼에 정확하게 로드되는지 테스트합니다. 모든 입력 필드가 예상대로 작동하는지 확인합니다. 유효성 검사가 올바르게 작동하는지 테스트합니다. 폼 제출 시 API 호출이 정상적으로 이루어지는지 확인합니다. 다양한 화면 크기에서 반응형 디자인이 올바르게 적용되는지 테스트합니다."
+          },
+          {
+            "id": 5,
+            "title": "메모 컴포넌트 통합 및 상태 관리 구현",
+            "description": "개발된 메모 컴포넌트들을 통합하고 Zustand를 사용한 상태 관리 구현",
+            "dependencies": [
+              "5.1",
+              "5.2",
+              "5.3",
+              "5.4"
+            ],
+            "details": "개발된 메모 작성 폼, 목록, 상세 보기, 편집 폼 컴포넌트들을 통합하고, Zustand를 사용하여 전역 상태 관리를 구현합니다. 메모 데이터, UI 상태, 로딩 상태, 오류 상태 등을 관리하는 스토어를 설계합니다. Supabase 클라이언트를 통해 API와 통신하는 로직을 중앙화하여 코드 중복을 방지합니다. 컴포넌트 간 데이터 흐름과 상호작용을 정의하고, 사용자 경험을 최적화합니다. 다크 모드/라이트 모드 전환, 테마 설정 등의 UI 기본 설정을 구현합니다. 성능 최적화를 위해 메모이제이션, 지연 로딩 등의 기법을 적용합니다.",
+            "status": "pending",
+            "testStrategy": "통합된 컴포넌트들이 올바르게 상호작용하는지 확인합니다. Zustand 스토어가 예상대로 상태를 관리하는지 테스트합니다. API 통신이 정상적으로 이루어지는지 확인합니다. 다크 모드/라이트 모드 전환이 올바르게 작동하는지 테스트합니다. 성능 최적화 기법이 효과적으로 적용되었는지 확인합니다. 전체 사용자 경험이 일관되고 직관적인지 평가합니다."
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "title": "Anthropic Claude API 연동 및 요약 기능 구현",
+        "description": "Anthropic Claude API를 연동하여 메모 내용을 자동으로 요약하는 기능 구현",
+        "details": "@anthropic-ai/sdk를 설치하고 Anthropic Claude API를 연동합니다. 메모 내용을 자동으로 요약하는 API 엔드포인트를 구현하고, 프롬프트 엔지니어링을 통해 한국어 메모 요약에 최적화된 프롬프트를 설계합니다. 요약 결과를 데이터베이스에 저장하고, 요약 품질을 검증하는 로직을 구현합니다. API 호출 비용을 관리하기 위한 캐싱 전략과 요약 길이 제한을 설정합니다.",
+        "testStrategy": "다양한 길이와 내용의 메모에 대해 요약 기능을 테스트합니다. API 오류 발생 시 적절한 오류 처리가 이루어지는지 확인합니다. 캐싱이 올바르게 작동하는지 테스트합니다. 요약 결과의 품질을 평가하기 위한 사용자 피드백 메커니즘을 구현하고 테스트합니다.",
+        "priority": "medium",
+        "dependencies": [
+          4
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 7,
+        "title": "자동 카테고리 분류 기능 구현",
+        "description": "AI를 활용하여 메모 내용을 자동으로 카테고리별로 분류하는 기능 구현",
+        "details": "Anthropic Claude API를 사용하여 메모 내용을 분석하고 적절한 카테고리로 자동 분류하는 기능을 구현합니다. 미리 정의된 카테고리(회의록, 아이디어, 학습노트, 개인메모 등)에 대한 분류 로직을 설계하고, 분류 결과를 데이터베이스에 저장합니다. 사용자가 분류 결과를 수정할 수 있는 기능도 제공하고, 분류 정확도를 개선하기 위한 피드백 시스템을 구현합니다.",
+        "testStrategy": "다양한 내용의 메모에 대해 카테고리 분류가 정확하게 작동하는지 테스트합니다. 분류 결과가 데이터베이스에 올바르게 저장되는지 확인합니다. 사용자 수정 기능이 제대로 작동하는지 테스트합니다. 분류 정확도가 지속적으로 개선되는지 확인합니다.",
+        "priority": "medium",
+        "dependencies": [
+          4,
+          6
+        ],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "카테고리 분류 로직 설계 및 Claude API 연동",
+            "description": "메모 내용을 분석하여 카테고리를 분류하는 로직을 설계하고 Anthropic Claude API와 연동",
+            "dependencies": [],
+            "details": "미리 정의된 카테고리(회의록, 아이디어, 학습노트, 개인메모 등)에 대한 분류 기준을 정의합니다. Claude API에 전송할 프롬프트 템플릿을 설계하고, API 응답을 처리하는 로직을 구현합니다. API 호출 최적화 및 오류 처리 방안도 포함합니다. 분류 결과의 신뢰도 점수를 계산하는 방법도 설계합니다.",
+            "status": "pending",
+            "testStrategy": "다양한 메모 샘플을 사용하여 분류 로직의 정확도를 테스트합니다. API 응답 시간과 오류 처리가 적절히 작동하는지 확인합니다. 각 카테고리별 분류 정확도를 측정하고 개선점을 파악합니다."
+          },
+          {
+            "id": 2,
+            "title": "데이터베이스 스키마 설계 및 분류 결과 저장 기능 구현",
+            "description": "자동 분류된 카테고리 정보를 저장하기 위한 데이터베이스 스키마 설계 및 저장 기능 구현",
+            "dependencies": [
+              "7.1"
+            ],
+            "details": "Supabase 데이터베이스에 메모 테이블에 카테고리 필드를 추가하고, 분류 이력을 저장할 테이블을 설계합니다. 분류 결과와 신뢰도 점수를 함께 저장하는 구조를 만들고, 메모 생성 및 수정 시 자동으로 분류 API를 호출하여 결과를 저장하는 로직을 구현합니다. 대량의 메모를 일괄 분류하는 기능도 포함합니다.",
+            "status": "pending",
+            "testStrategy": "데이터베이스 스키마가 모든 필요한 정보를 저장할 수 있는지 확인합니다. 분류 결과가 정확하게 저장되고 조회되는지 테스트합니다. 대량의 메모 처리 시 성능 테스트를 수행합니다."
+          },
+          {
+            "id": 3,
+            "title": "사용자 카테고리 수정 인터페이스 개발",
+            "description": "사용자가 AI가 분류한 카테고리를 수정할 수 있는 UI 및 기능 개발",
+            "dependencies": [
+              "7.1",
+              "7.2"
+            ],
+            "details": "메모 상세 페이지와 목록 페이지에서 카테고리를 쉽게 변경할 수 있는 드롭다운 또는 선택 UI를 구현합니다. 사용자가 수정한 카테고리 정보를 데이터베이스에 업데이트하는 API를 개발하고, 수정 이력을 추적하는 기능을 구현합니다. 자동 분류된 카테고리와 사용자가 수정한 카테고리를 시각적으로 구분할 수 있도록 UI를 설계합니다.",
+            "status": "pending",
+            "testStrategy": "카테고리 수정 UI가 직관적이고 사용하기 쉬운지 사용자 테스트를 진행합니다. 수정된 카테고리가 즉시 반영되고 올바르게 저장되는지 확인합니다. 다양한 디바이스와 화면 크기에서 UI가 적절하게 표시되는지 테스트합니다."
+          },
+          {
+            "id": 4,
+            "title": "분류 피드백 시스템 구현",
+            "description": "사용자 수정 데이터를 활용한 분류 정확도 개선 피드백 시스템 구현",
+            "dependencies": [
+              "7.2",
+              "7.3"
+            ],
+            "details": "사용자가 수정한 카테고리 정보를 수집하여 분류 정확도를 개선하는 피드백 시스템을 구현합니다. 사용자 수정 데이터를 분석하여 자주 발생하는 오분류 패턴을 식별하고, 이를 바탕으로 Claude API에 전송하는 프롬프트를 동적으로 개선하는 로직을 개발합니다. 피드백 데이터를 저장하고 분석하기 위한 데이터베이스 구조와 API를 설계합니다.",
+            "status": "pending",
+            "testStrategy": "피드백 시스템이 실제로 분류 정확도를 향상시키는지 A/B 테스트를 수행합니다. 피드백 데이터가 올바르게 수집되고 저장되는지 확인합니다. 시간이 지남에 따라 분류 정확도가 개선되는지 장기적인 모니터링을 설정합니다."
+          },
+          {
+            "id": 5,
+            "title": "카테고리별 메모 필터링 및 통계 기능 개발",
+            "description": "자동 분류된 카테고리를 기반으로 메모를 필터링하고 통계를 제공하는 기능 개발",
+            "dependencies": [
+              "7.2",
+              "7.3",
+              "7.4"
+            ],
+            "details": "카테고리별로 메모를 필터링하여 볼 수 있는 UI와 기능을 구현합니다. 사용자별 카테고리 분포와 시간에 따른 카테고리 변화 추이를 시각화하는 통계 대시보드를 개발합니다. 카테고리별 메모 수, 평균 길이, 작성 빈도 등의 통계 정보를 제공하고, 사용자가 가장 많이 작성하는 카테고리와 관련된 인사이트를 제공합니다.",
+            "status": "pending",
+            "testStrategy": "필터링 기능이 정확하게 작동하는지 테스트합니다. 통계 정보가 실시간으로 업데이트되고 정확한지 확인합니다. 대시보드 UI가 직관적이고 유용한 정보를 제공하는지 사용자 피드백을 수집합니다."
+          }
+        ]
+      },
+      {
+        "id": 8,
+        "title": "Web Speech API 연동 및 STT 기능 구현",
+        "description": "Web Speech API를 사용하여 음성을 텍스트로 변환하는 기능 구현",
+        "details": "브라우저의 Web Speech API(SpeechRecognition 인터페이스)를 사용하여 실시간 음성 인식 기능을 구현합니다. 한국어 인식을 위해 'ko-KR' 언어 설정을 적용하고, 연속 인식 모드를 활성화합니다. 음성 인식 시작/중지 버튼과 현재 상태를 표시하는 UI를 구현합니다. 인식된 텍스트를 실시간으로 화면에 표시하고, 인식이 완료되면 메모 내용으로 자동 저장합니다. 브라우저 호환성 문제를 해결하기 위한 폴백 메커니즘도 구현합니다. 마이크 권한 요청 및 오류 처리 로직을 추가합니다.",
+        "testStrategy": "다양한 브라우저(Chrome, Firefox, Safari 등)에서 음성 인식 기능을 테스트합니다. 다양한 음성(속도, 억양, 배경 소음 등)에 대한 인식 정확도를 평가합니다. 마이크 권한 거부 시 적절한 오류 메시지가 표시되는지 확인합니다. 긴 음성 녹음 시 성능 저하가 발생하지 않는지 테스트합니다.",
+        "priority": "medium",
+        "dependencies": [
+          5
+        ],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Web Speech API 기본 설정 및 초기화",
+            "description": "SpeechRecognition 인터페이스 초기화 및 한국어 설정",
+            "dependencies": [],
+            "details": "브라우저의 SpeechRecognition 객체를 초기화하고 기본 설정을 구성합니다. window.SpeechRecognition 또는 window.webkitSpeechRecognition을 사용하여 브라우저 호환성을 확보합니다. 한국어 인식을 위해 'ko-KR' 언어 설정을 적용하고, 연속 인식 모드(continuous=true)와 중간 결과 표시(interimResults=true)를 활성화합니다. 인식 결과, 오류, 시작/종료 등의 이벤트 리스너를 등록합니다.",
+            "status": "pending",
+            "testStrategy": "다양한 브라우저(Chrome, Firefox, Safari 등)에서 SpeechRecognition 객체가 올바르게 초기화되는지 확인합니다. 언어 설정이 'ko-KR'로 제대로 적용되는지 테스트합니다. 이벤트 리스너가 정상적으로 등록되는지 확인합니다."
+          },
+          {
+            "id": 2,
+            "title": "음성 인식 UI 컴포넌트 구현",
+            "description": "음성 인식 시작/중지 버튼 및 상태 표시 UI 개발",
+            "dependencies": [
+              "8.1"
+            ],
+            "details": "음성 인식 기능을 제어할 수 있는 UI 컴포넌트를 개발합니다. 마이크 시작/중지 버튼을 구현하고, 현재 인식 상태(대기 중, 인식 중, 일시 중지, 오류 등)를 시각적으로 표시합니다. 마이크 활성화 상태에 따라 버튼 스타일을 변경하고, 음성 입력 레벨을 시각화하는 인디케이터를 추가합니다. 모바일 환경에서도 사용하기 쉬운 반응형 디자인을 적용합니다.",
+            "status": "pending",
+            "testStrategy": "다양한 화면 크기와 기기에서 UI가 올바르게 표시되는지 테스트합니다. 버튼 클릭 시 상태 변화가 정확하게 반영되는지 확인합니다. 음성 인식 상태에 따라 UI가 적절하게 업데이트되는지 테스트합니다."
+          },
+          {
+            "id": 3,
+            "title": "실시간 음성 인식 및 텍스트 표시 기능 구현",
+            "description": "음성을 실시간으로 인식하여 텍스트로 변환하고 화면에 표시",
+            "dependencies": [
+              "8.1",
+              "8.2"
+            ],
+            "details": "SpeechRecognition의 onresult 이벤트를 활용하여 실시간으로 인식된 음성을 텍스트로 변환합니다. 중간 결과(interim results)와 최종 결과를 구분하여 처리하고, 중간 결과는 이탤릭체나 다른 스타일로 표시합니다. 인식된 텍스트를 실시간으로 화면에 업데이트하고, 긴 음성 인식 시에도 성능이 저하되지 않도록 최적화합니다. 음성 인식 결과를 상태 관리 시스템(Zustand 등)에 저장하여 애플리케이션 전체에서 활용할 수 있도록 합니다.",
+            "status": "pending",
+            "testStrategy": "다양한 길이와 복잡성의 음성 입력에 대한 인식 정확도를 테스트합니다. 실시간 텍스트 업데이트가 지연 없이 이루어지는지 확인합니다. 중간 결과와 최종 결과가 올바르게 구분되어 표시되는지 테스트합니다."
+          },
+          {
+            "id": 4,
+            "title": "브라우저 호환성 및 폴백 메커니즘 구현",
+            "description": "다양한 브라우저에서의 호환성 확보 및 미지원 브라우저 대응",
+            "dependencies": [
+              "8.1",
+              "8.3"
+            ],
+            "details": "Web Speech API를 지원하지 않는 브라우저를 위한 폴백 메커니즘을 구현합니다. 브라우저 호환성 검사 로직을 추가하여 SpeechRecognition 지원 여부를 확인하고, 지원하지 않는 경우 사용자에게 알림을 표시합니다. 크로스 브라우저 호환성을 위해 vendor prefix(webkit, moz 등)를 처리하는 로직을 구현합니다. 미지원 브라우저에서는 텍스트 입력 방식으로 자동 전환되도록 하거나, 대체 STT 서비스(Google Cloud Speech-to-Text 등)를 사용하는 옵션을 제공합니다.",
+            "status": "pending",
+            "testStrategy": "Chrome, Firefox, Safari, Edge 등 다양한 브라우저에서 기능이 정상 작동하는지 테스트합니다. 미지원 브라우저에서 폴백 메커니즘이 올바르게 작동하는지 확인합니다. vendor prefix 처리 로직이 다양한 브라우저 환경에서 정상 작동하는지 테스트합니다."
+          },
+          {
+            "id": 5,
+            "title": "마이크 권한 관리 및 오류 처리 구현",
+            "description": "마이크 접근 권한 요청 및 다양한 오류 상황 처리",
+            "dependencies": [
+              "8.1",
+              "8.2",
+              "8.3"
+            ],
+            "details": "사용자의 마이크 접근 권한을 요청하고 관리하는 로직을 구현합니다. navigator.mediaDevices.getUserMedia API를 사용하여 마이크 권한을 명시적으로 요청하고, 권한 상태를 추적합니다. 권한 거부, 마이크 연결 해제, 네트워크 오류, 인식 오류 등 다양한 오류 상황을 감지하고 적절히 처리합니다. 오류 발생 시 사용자에게 명확한 메시지를 표시하고, 문제 해결을 위한 가이드를 제공합니다. 인식 중 발생할 수 있는 예외 상황(음성이 너무 길거나, 배경 소음이 심한 경우 등)에 대한 처리 로직도 추가합니다.",
+            "status": "pending",
+            "testStrategy": "마이크 권한 요청 프로세스가 다양한 브라우저에서 올바르게 작동하는지 테스트합니다. 권한 거부, 마이크 연결 해제 등 다양한 오류 상황에서 적절한 오류 메시지가 표시되는지 확인합니다. 오류 발생 후 애플리케이션이 정상 상태로 복구되는지 테스트합니다."
+          }
+        ]
+      },
+      {
+        "id": 9,
+        "title": "Google Cloud Speech-to-Text API 연동 (대체 STT)",
+        "description": "Web Speech API의 한계를 보완하기 위한 Google Cloud Speech-to-Text API 연동",
+        "details": "Web Speech API의 한계를 보완하기 위해 Google Cloud Speech-to-Text API를 대체 STT 솔루션으로 연동합니다. @google-cloud/speech 패키지를 설치하고 Google Cloud 프로젝트를 설정합니다. 오디오 녹음 기능을 구현하고, 녹음된 오디오를 적절한 포맷(16kHz, 16bit, mono)으로 변환합니다. POST /api/speech-to-text 엔드포인트를 구현하여 오디오 파일을 Google Cloud로 전송하고 변환 결과를 받아옵니다. 한국어 인식을 위해 'ko-KR' 언어 설정을 적용하고, 향상된 모델을 사용하여 정확도를 높입니다. Web Speech API와 Google Cloud STT 간의 전환 메커니즘을 구현하여 사용자가 선택할 수 있도록 합니다.",
+        "testStrategy": "다양한 오디오 품질과 길이에 대한 변환 정확도를 테스트합니다. API 오류 발생 시 적절한 오류 처리가 이루어지는지 확인합니다. 오디오 파일 업로드 및 처리 성능을 테스트합니다. Web Speech API와의 전환이 원활하게 이루어지는지 확인합니다.",
+        "priority": "medium",
+        "dependencies": [
+          8
+        ],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Google Cloud 프로젝트 설정 및 API 키 발급",
+            "description": "Google Cloud 프로젝트를 생성하고 Speech-to-Text API를 활성화하여 API 키를 발급받습니다.",
+            "dependencies": [],
+            "details": "Google Cloud Console에서 새 프로젝트를 생성합니다. Speech-to-Text API를 활성화하고 서비스 계정을 생성합니다. 서비스 계정 키(JSON)를 다운로드하여 프로젝트에 안전하게 저장합니다. 환경 변수(GOOGLE_APPLICATION_CREDENTIALS)를 설정하여 API 키를 참조할 수 있도록 합니다. 프로젝트의 .env.local 파일에 필요한 환경 변수를 추가하고 .gitignore에 포함시켜 보안을 유지합니다.",
+            "status": "pending",
+            "testStrategy": "Google Cloud 인증이 올바르게 설정되었는지 확인하기 위해 간단한 API 호출 테스트를 수행합니다. 환경 변수가 올바르게 로드되는지 확인합니다. 서비스 계정 권한이 적절하게 설정되었는지 테스트합니다."
+          },
+          {
+            "id": 2,
+            "title": "@google-cloud/speech 패키지 설치 및 클라이언트 구성",
+            "description": "Google Cloud Speech-to-Text API를 사용하기 위한 패키지를 설치하고 클라이언트를 구성합니다.",
+            "dependencies": [
+              "9.1"
+            ],
+            "details": "npm 또는 yarn을 사용하여 @google-cloud/speech 패키지를 설치합니다. Google Cloud Speech 클라이언트를 초기화하는 유틸리티 함수를 lib/ 디렉토리에 생성합니다. 한국어 인식을 위한 'ko-KR' 언어 설정과 향상된 모델 사용을 위한 구성을 추가합니다. 오디오 설정(16kHz, 16bit, mono)을 위한 구성 옵션을 정의합니다. 클라이언트 초기화 시 오류 처리 로직을 구현합니다.",
+            "status": "pending",
+            "testStrategy": "클라이언트가 올바르게 초기화되는지 테스트합니다. 다양한 구성 옵션으로 클라이언트를 초기화하여 유연성을 확인합니다. 오류 상황(예: 잘못된 인증 정보)에서 적절한 오류 처리가 이루어지는지 테스트합니다."
+          },
+          {
+            "id": 3,
+            "title": "오디오 녹음 및 포맷 변환 기능 구현",
+            "description": "브라우저에서 오디오를 녹음하고 Google Cloud STT API에 적합한 포맷으로 변환하는 기능을 구현합니다.",
+            "dependencies": [],
+            "details": "MediaRecorder API를 사용하여 브라우저에서 오디오 녹음 기능을 구현합니다. 녹음된 오디오를 16kHz, 16bit, mono 포맷으로 변환하는 로직을 구현합니다. Web Audio API를 사용하여 오디오 스트림을 처리하고 필요한 포맷으로 변환합니다. 녹음 시작/중지 버튼과 현재 녹음 상태를 표시하는 UI 컴포넌트를 구현합니다. 마이크 권한 요청 및 오류 처리 로직을 추가합니다.",
+            "status": "pending",
+            "testStrategy": "다양한 브라우저에서 오디오 녹음 기능이 작동하는지 테스트합니다. 녹음된 오디오가 올바른 포맷으로 변환되는지 확인합니다. 마이크 권한 거부 시 적절한 오류 메시지가 표시되는지 확인합니다. 다양한 오디오 소스와 환경에서 녹음 품질을 테스트합니다."
+          },
+          {
+            "id": 4,
+            "title": "Speech-to-Text API 엔드포인트 구현",
+            "description": "오디오 파일을 Google Cloud로 전송하고 변환 결과를 받아오는 API 엔드포인트를 구현합니다.",
+            "dependencies": [
+              "9.2",
+              "9.3"
+            ],
+            "details": "Next.js API Routes를 사용하여 POST /api/speech-to-text 엔드포인트를 구현합니다. 클라이언트에서 전송된 오디오 파일을 받아 Google Cloud Speech-to-Text API로 전송하는 로직을 구현합니다. API 응답을 처리하고 변환된 텍스트를 클라이언트에 반환합니다. 오류 처리 및 재시도 메커니즘을 구현하여 API 호출의 안정성을 높입니다. 대용량 오디오 파일 처리를 위한 스트리밍 방식도 고려합니다.",
+            "status": "pending",
+            "testStrategy": "다양한 오디오 파일(길이, 품질, 언어 등)로 API 엔드포인트를 테스트합니다. API 오류 발생 시 적절한 오류 응답이 반환되는지 확인합니다. 대용량 파일 처리 성능을 테스트합니다. 동시에 여러 요청이 들어올 때 API의 안정성을 확인합니다."
+          },
+          {
+            "id": 5,
+            "title": "Web Speech API와 Google Cloud STT 간 전환 메커니즘 구현",
+            "description": "사용자가 Web Speech API와 Google Cloud STT 중 선택할 수 있는 전환 메커니즘을 구현합니다.",
+            "dependencies": [
+              "9.4"
+            ],
+            "details": "사용자가 STT 엔진을 선택할 수 있는 UI 컴포넌트를 구현합니다. Zustand 또는 Context API를 사용하여 선택된 STT 엔진 상태를 관리합니다. Web Speech API 실패 시 자동으로 Google Cloud STT로 전환하는 폴백 메커니즘을 구현합니다. 각 STT 엔진의 장단점을 사용자에게 안내하는 정보를 제공합니다. 사용자의 선택을 로컬 스토리지에 저장하여 다음 방문 시에도 유지되도록 합니다.",
+            "status": "pending",
+            "testStrategy": "두 STT 엔진 간 전환이 원활하게 이루어지는지 테스트합니다. Web Speech API 실패 시 자동 전환 기능이 제대로 작동하는지 확인합니다. 사용자 선택이 로컬 스토리지에 올바르게 저장되고 로드되는지 테스트합니다. 다양한 브라우저와 디바이스에서 전환 메커니즘의 호환성을 확인합니다."
+          }
+        ]
+      },
+      {
+        "id": 10,
+        "title": "오디오 파일 저장 및 관리 기능 구현",
+        "description": "Cloudinary를 사용하여 녹음된 오디오 파일을 저장하고 관리하는 기능 구현",
+        "details": "Cloudinary API 클라이언트 라이브러리(cloudinary@1.41.0)를 설치하고 계정 정보를 환경 변수로 설정합니다. 오디오 파일 업로드를 위한 POST /api/upload/audio 엔드포인트를 구현합니다. 업로드된 오디오 파일의 URL을 Supabase 데이터베이스에 저장하고, 메모와 연결합니다. 오디오 파일 재생을 위한 플레이어 컴포넌트를 구현하고, 재생 속도 조절, 구간 반복 등의 기능을 추가합니다. 오디오 파일 삭제 기능도 구현하여 불필요한 파일을 정리할 수 있도록 합니다.",
+        "testStrategy": "다양한 오디오 파일 형식과 크기에 대한 업로드 기능을 테스트합니다. 오디오 플레이어가 모든 주요 브라우저에서 올바르게 작동하는지 확인합니다. 파일 삭제 기능이 Cloudinary와 데이터베이스에서 모두 올바르게 작동하는지 테스트합니다. 대용량 파일 처리 성능을 평가합니다.",
+        "priority": "medium",
+        "dependencies": [
+          8,
+          9
+        ],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Cloudinary 설정 및 환경 변수 구성",
+            "description": "Cloudinary API 클라이언트 라이브러리 설치 및 계정 정보 환경 변수 설정",
+            "dependencies": [],
+            "details": "cloudinary@1.41.0 패키지를 설치하고, Cloudinary 계정을 생성한 후 API 키, API 시크릿, 클라우드 이름을 환경 변수(.env.local)에 설정합니다. Next.js에서 Cloudinary 클라이언트를 초기화하는 유틸리티 함수를 lib/ 디렉토리에 구현합니다. 오디오 파일 업로드를 위한 Cloudinary 설정(폴더 구조, 리소스 타입, 변환 옵션 등)을 구성합니다.",
+            "status": "pending",
+            "testStrategy": "환경 변수가 올바르게 로드되는지 확인하고, Cloudinary 클라이언트가 성공적으로 초기화되는지 테스트합니다. 간단한 테스트 파일을 업로드하여 연결이 제대로 작동하는지 확인합니다."
+          },
+          {
+            "id": 2,
+            "title": "오디오 파일 업로드 API 엔드포인트 구현",
+            "description": "POST /api/upload/audio 엔드포인트 개발 및 Cloudinary 업로드 로직 구현",
+            "dependencies": [
+              "10.1"
+            ],
+            "details": "app/api/upload/audio/route.ts 파일을 생성하여 POST 요청을 처리하는 엔드포인트를 구현합니다. 멀티파트 폼 데이터로 전송된 오디오 파일을 파싱하고, Cloudinary API를 사용하여 파일을 업로드합니다. 업로드 진행 상황을 모니터링하고, 성공 시 파일 URL, 리소스 ID 등의 정보를 응답으로 반환합니다. 오류 처리 및 유효성 검사 로직을 추가하여 안정적인 업로드를 보장합니다.",
+            "status": "pending",
+            "testStrategy": "다양한 오디오 파일 형식(mp3, wav, ogg 등)과 크기에 대한 업로드를 테스트합니다. 오류 상황(파일 크기 초과, 잘못된 형식 등)에 대한 처리가 올바르게 작동하는지 확인합니다. API 응답 시간과 성능을 측정합니다."
+          },
+          {
+            "id": 3,
+            "title": "오디오 파일 URL을 Supabase 데이터베이스에 저장",
+            "description": "업로드된 오디오 파일의 URL과 메타데이터를 Supabase에 저장하고 메모와 연결",
+            "dependencies": [
+              "10.2"
+            ],
+            "details": "Supabase 데이터베이스에 오디오 파일 정보를 저장하기 위한 테이블 스키마를 정의합니다. DrizzleORM을 사용하여 오디오 파일 모델을 구현하고, 메모 모델과의 관계를 설정합니다. 업로드 API에서 반환된 Cloudinary URL과 메타데이터(파일 이름, 크기, 형식, 업로드 날짜 등)를 데이터베이스에 저장하는 로직을 구현합니다. 메모 ID를 기반으로 오디오 파일과 메모를 연결합니다.",
+            "status": "pending",
+            "testStrategy": "데이터베이스에 오디오 파일 정보가 올바르게 저장되는지 확인합니다. 메모와 오디오 파일 간의 관계가 제대로 설정되는지 테스트합니다. 동일한 메모에 여러 오디오 파일을 연결하는 경우를 테스트합니다."
+          },
+          {
+            "id": 4,
+            "title": "오디오 플레이어 컴포넌트 구현",
+            "description": "오디오 파일 재생을 위한 플레이어 컴포넌트 개발 및 고급 기능 추가",
+            "dependencies": [
+              "10.3"
+            ],
+            "details": "React 기반의 오디오 플레이어 컴포넌트를 components/AudioPlayer.tsx에 구현합니다. HTML5 Audio API 또는 howler.js 라이브러리를 사용하여 오디오 재생 기능을 구현합니다. 재생/일시정지, 볼륨 조절, 진행 상태 표시, 재생 속도 조절(0.5x, 1x, 1.5x, 2x) 기능을 추가합니다. 특정 구간 반복 재생 기능을 구현하여 사용자가 시작 지점과 종료 지점을 설정할 수 있도록 합니다. 웨이브폼 시각화 또는 타임라인 표시 기능을 추가하여 사용자 경험을 향상시킵니다.",
+            "status": "pending",
+            "testStrategy": "다양한 브라우저(Chrome, Firefox, Safari, Edge)에서 플레이어가 올바르게 작동하는지 테스트합니다. 모바일 기기에서의 호환성을 확인합니다. 재생 속도 조절, 구간 반복 등의 고급 기능이 정확하게 작동하는지 테스트합니다. 메모리 누수가 없는지 확인합니다."
+          },
+          {
+            "id": 5,
+            "title": "오디오 파일 삭제 기능 구현",
+            "description": "불필요한 오디오 파일을 Cloudinary와 데이터베이스에서 삭제하는 기능 개발",
+            "dependencies": [
+              "10.3",
+              "10.4"
+            ],
+            "details": "오디오 파일 삭제를 위한 DELETE /api/upload/audio/:id 엔드포인트를 구현합니다. Cloudinary API를 사용하여 클라우드에서 파일을 삭제하는 로직을 구현합니다. 데이터베이스에서 해당 오디오 파일 레코드를 삭제하고, 메모와의 연결을 제거합니다. 사용자 인터페이스에 삭제 버튼을 추가하고, 삭제 전 확인 대화상자를 표시합니다. 삭제 작업의 성공/실패 상태를 사용자에게 알립니다. 일괄 삭제 기능도 구현하여 여러 파일을 한 번에 삭제할 수 있도록 합니다.",
+            "status": "pending",
+            "testStrategy": "Cloudinary와 데이터베이스에서 파일이 완전히 삭제되는지 확인합니다. 삭제 후 UI가 올바르게 업데이트되는지 테스트합니다. 삭제 권한 검증이 제대로 작동하는지 확인합니다. 네트워크 오류 등의 예외 상황에서 롤백 메커니즘이 작동하는지 테스트합니다."
+          }
+        ]
+      },
+      {
+        "id": 11,
+        "title": "메모 검색 기능 구현",
+        "description": "키워드, 작성일, 카테고리별 메모 검색 기능 구현",
+        "details": "Supabase의 PostgreSQL full-text search 기능을 활용하여 메모 검색 기능을 구현합니다. 키워드 검색, 카테고리별 필터링, 날짜 범위 검색 등의 기능을 제공합니다. 검색 결과를 하이라이팅하고, 검색어 자동완성 기능도 구현합니다. 검색 성능을 최적화하기 위한 인덱스를 설정하고, 검색 결과의 정확도를 향상시키기 위한 알고리즘을 적용합니다.",
+        "testStrategy": "다양한 검색 쿼리와 조건에 대한 검색 결과의 정확성을 테스트합니다. 대량의 메모에서의 검색 성능을 측정합니다. 검색 결과 하이라이팅이 올바르게 작동하는지 확인합니다. 자동 완성 및 검색어 제안 기능의 사용성을 테스트합니다.",
+        "priority": "medium",
+        "dependencies": [
+          4,
+          7
+        ],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "PostgreSQL 전체 텍스트 검색 인덱스 설정",
+            "description": "Supabase의 PostgreSQL 데이터베이스에 전체 텍스트 검색을 위한 인덱스 설정",
+            "dependencies": [],
+            "details": "메모 테이블에 tsvector 컬럼을 추가하고, 제목과 내용 필드에 대한 GIN 인덱스를 생성합니다. 트리거를 설정하여 메모가 생성되거나 업데이트될 때 자동으로 tsvector 컬럼이 업데이트되도록 합니다. 한국어 검색을 위한 사전 설정과 토큰화 방식을 구성하고, 검색 가중치를 조정하여 제목에 더 높은 우선순위를 부여합니다.",
+            "status": "pending",
+            "testStrategy": "다양한 한국어 키워드로 검색 쿼리를 실행하여 인덱스가 올바르게 작동하는지 확인합니다. 대량의 메모 데이터를 삽입한 후 검색 성능을 측정하고, 인덱스 생성 전후의 쿼리 실행 시간을 비교합니다."
+          },
+          {
+            "id": 2,
+            "title": "키워드 검색 API 구현",
+            "description": "메모 내용과 제목에서 키워드를 검색하는 API 엔드포인트 구현",
+            "dependencies": [
+              "11.1"
+            ],
+            "details": "Next.js API 라우트를 사용하여 /api/memos/search 엔드포인트를 구현합니다. DrizzleORM을 사용하여 PostgreSQL의 ts_query와 ts_rank 함수를 활용한 검색 쿼리를 작성합니다. 검색 결과를 관련성 점수에 따라 정렬하고, 페이지네이션을 지원합니다. 검색 결과에는 메모 ID, 제목, 내용 미리보기, 작성일, 카테고리 정보를 포함합니다. 검색어와 일치하는 부분을 식별하여 하이라이팅 정보도 함께 반환합니다.",
+            "status": "pending",
+            "testStrategy": "다양한 검색어와 조건으로 API를 호출하여 결과의 정확성을 검증합니다. 특수문자, 긴 검색어, 짧은 검색어 등 다양한 케이스를 테스트합니다. 응답 시간을 측정하여 성능을 평가하고, 대량의 데이터에서도 적절한 시간 내에 결과를 반환하는지 확인합니다."
+          },
+          {
+            "id": 3,
+            "title": "날짜 및 카테고리 필터링 구현",
+            "description": "작성일 범위와 카테고리별 메모 필터링 기능 구현",
+            "dependencies": [
+              "11.2"
+            ],
+            "details": "검색 API에 날짜 범위(startDate, endDate)와 카테고리 ID 파라미터를 추가합니다. DrizzleORM을 사용하여 날짜 범위와 카테고리 조건을 포함한 쿼리를 구성합니다. 여러 필터를 조합하여 사용할 수 있도록 쿼리 빌더 패턴을 적용합니다. 사용자 인터페이스에서는 날짜 선택기와 카테고리 체크박스 목록을 제공하여 직관적인 필터링이 가능하도록 합니다. 필터 상태를 URL 쿼리 파라미터에 반영하여 필터링된 결과를 공유할 수 있게 합니다.",
+            "status": "pending",
+            "testStrategy": "다양한 날짜 범위와 카테고리 조합으로 필터링을 테스트합니다. 날짜 형식 변환이 올바르게 처리되는지 확인하고, 여러 필터를 동시에 적용했을 때 결과가 정확한지 검증합니다. 필터 적용 후 페이지네이션이 올바르게 작동하는지 테스트합니다."
+          },
+          {
+            "id": 4,
+            "title": "검색 결과 UI 및 하이라이팅 구현",
+            "description": "검색 결과를 표시하는 UI와 검색어 하이라이팅 기능 구현",
+            "dependencies": [
+              "11.2",
+              "11.3"
+            ],
+            "details": "검색 결과를 카드 형태로 표시하는 UI 컴포넌트를 구현합니다. 각 카드에는 메모 제목, 내용 미리보기, 작성일, 카테고리 정보를 포함합니다. 검색어와 일치하는 부분을 하이라이팅하기 위해 react-highlight-words 라이브러리를 사용합니다. 검색 결과가 없을 경우 적절한 메시지를 표시하고, 로딩 상태와 에러 상태를 처리합니다. 무한 스크롤 또는 페이지네이션을 구현하여 대량의 검색 결과를 효율적으로 탐색할 수 있게 합니다.",
+            "status": "pending",
+            "testStrategy": "다양한 화면 크기에서 UI가 올바르게 렌더링되는지 확인합니다. 검색어 하이라이팅이 정확하게 작동하는지 테스트하고, 긴 텍스트와 짧은 텍스트에서 모두 적절하게 표시되는지 확인합니다. 무한 스크롤 또는 페이지네이션의 사용성을 테스트합니다."
+          },
+          {
+            "id": 5,
+            "title": "검색어 자동완성 기능 구현",
+            "description": "사용자 입력에 따른 검색어 자동완성 및 제안 기능 구현",
+            "dependencies": [
+              "11.2"
+            ],
+            "details": "사용자가 검색창에 입력할 때 실시간으로 자동완성 제안을 표시하는 기능을 구현합니다. 이전 검색어 기록과 메모 내용에서 추출한 키워드를 기반으로 제안을 생성합니다. 자동완성 API 엔드포인트(/api/search/autocomplete)를 구현하고, 디바운싱을 적용하여 불필요한 API 호출을 줄입니다. 키보드 탐색이 가능한 드롭다운 UI를 구현하여 사용자가 쉽게 제안된 검색어를 선택할 수 있게 합니다. 자주 검색되는 키워드를 캐싱하여 자동완성 성능을 최적화합니다.",
+            "status": "pending",
+            "testStrategy": "다양한 입력 패턴에 대한 자동완성 제안의 정확성을 테스트합니다. 키보드 탐색이 올바르게 작동하는지 확인하고, 디바운싱이 효과적으로 적용되는지 테스트합니다. 자동완성 UI가 모바일 환경에서도 사용하기 쉬운지 확인합니다."
+          }
+        ]
+      },
+      {
+        "id": 12,
+        "title": "메모 통계 및 분석 기능 구현",
+        "description": "사용자의 메모 작성 패턴 및 카테고리 분포를 시각화하는 통계 기능 구현",
+        "details": "사용자의 메모 작성 패턴과 카테고리 분포를 분석하고 시각화하는 통계 기능을 구현합니다. 차트 라이브러리(Chart.js, Recharts 등)를 사용하여 메모 작성 빈도, 카테고리별 분포, 시간대별 활동 등을 차트로 표시합니다. 통계 데이터를 Supabase 데이터베이스에서 조회하고, 실시간으로 업데이트되는 대시보드를 구현합니다.",
+        "testStrategy": "통계 데이터가 올바르게 계산되고 표시되는지 테스트합니다. 차트가 다양한 화면 크기에서 올바르게 렌더링되는지 확인합니다. 실시간 업데이트가 제대로 작동하는지 테스트합니다. 데이터 정확성과 성능을 확인합니다.",
+        "priority": "low",
+        "dependencies": [
+          4,
+          7
+        ],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Supabase 데이터베이스에서 메모 통계 데이터 쿼리 구현",
+            "description": "사용자의 메모 작성 패턴과 카테고리 분포를 분석하기 위한 SQL 쿼리 및 데이터 조회 함수 구현",
+            "dependencies": [],
+            "details": "Supabase 데이터베이스에서 메모 통계 데이터를 효율적으로 조회하는 SQL 쿼리를 작성합니다. 메모 작성 빈도(일별, 주별, 월별), 카테고리별 메모 분포, 시간대별 메모 작성 활동, 태그 사용 빈도 등의 통계 데이터를 조회하는 함수를 구현합니다. DrizzleORM을 활용하여 복잡한 집계 쿼리를 작성하고, 성능 최적화를 위해 적절한 인덱스를 활용합니다.",
+            "status": "pending",
+            "testStrategy": "각 통계 쿼리가 정확한 결과를 반환하는지 테스트 데이터셋으로 검증합니다. 대용량 데이터에서의 쿼리 성능을 측정하고 최적화합니다. 에지 케이스(데이터가 없는 경우, 특정 기간에 데이터가 집중된 경우 등)에서도 올바르게 작동하는지 확인합니다."
+          },
+          {
+            "id": 2,
+            "title": "차트 라이브러리 통합 및 기본 차트 컴포넌트 구현",
+            "description": "Chart.js 또는 Recharts 라이브러리를 프로젝트에 통합하고 기본 차트 컴포넌트 개발",
+            "dependencies": [
+              "12.1"
+            ],
+            "details": "선택한 차트 라이브러리(Chart.js 또는 Recharts)를 프로젝트에 통합하고, 재사용 가능한 차트 컴포넌트를 개발합니다. 막대 차트, 파이 차트, 라인 차트, 히트맵 등 다양한 시각화에 필요한 기본 컴포넌트를 구현하고, 테마에 맞는 스타일을 적용합니다. 차트 컴포넌트는 반응형으로 구현하여 다양한 화면 크기에 대응하도록 합니다.",
+            "status": "pending",
+            "testStrategy": "다양한 데이터셋으로 각 차트 컴포넌트가 올바르게 렌더링되는지 확인합니다. 모바일, 태블릿, 데스크톱 등 다양한 화면 크기에서 반응형 디자인이 제대로 작동하는지 테스트합니다. 애니메이션과 인터랙션이 부드럽게 작동하는지 확인합니다."
+          },
+          {
+            "id": 3,
+            "title": "통계 대시보드 UI 구현",
+            "description": "사용자의 메모 통계를 시각적으로 표시하는 대시보드 페이지 UI 개발",
+            "dependencies": [
+              "12.2"
+            ],
+            "details": "메모 통계를 시각적으로 표시하는 대시보드 페이지의 UI를 구현합니다. 대시보드는 메모 작성 트렌드, 카테고리 분포, 시간대별 활동, 태그 클라우드 등 다양한 통계 위젯을 포함합니다. 사용자가 기간(일/주/월/년)을 선택하여 통계를 필터링할 수 있는 컨트롤을 추가하고, 위젯의 배치를 사용자가 커스터마이즈할 수 있는 기능을 구현합니다. Tailwind CSS를 활용하여 반응형 레이아웃을 구성합니다.",
+            "status": "pending",
+            "testStrategy": "대시보드 UI가 다양한 화면 크기에서 올바르게 렌더링되는지 테스트합니다. 필터링 컨트롤이 제대로 작동하는지 확인합니다. 위젯 배치 커스터마이징 기능이 사용자 친화적으로 작동하는지 테스트합니다. 접근성 표준을 준수하는지 확인합니다."
+          },
+          {
+            "id": 4,
+            "title": "실시간 데이터 업데이트 기능 구현",
+            "description": "Supabase Realtime을 활용한 통계 데이터 실시간 업데이트 기능 구현",
+            "dependencies": [
+              "12.1",
+              "12.3"
+            ],
+            "details": "Supabase Realtime 기능을 활용하여 메모 데이터가 변경될 때 통계 대시보드가 실시간으로 업데이트되는 기능을 구현합니다. 메모 추가, 수정, 삭제 이벤트를 구독하고, 이벤트 발생 시 관련 통계 데이터를 효율적으로 업데이트합니다. 실시간 업데이트 시 불필요한 리렌더링을 최소화하고, 네트워크 트래픽을 최적화하는 전략을 적용합니다. 오프라인 상태에서도 최신 데이터를 표시할 수 있도록 캐싱 메커니즘을 구현합니다.",
+            "status": "pending",
+            "testStrategy": "실시간 업데이트가 다양한 네트워크 상태에서 올바르게 작동하는지 테스트합니다. 여러 클라이언트에서 동시에 데이터를 변경할 때 일관성이 유지되는지 확인합니다. 오프라인 상태에서 캐싱된 데이터가 올바르게 표시되는지 테스트합니다. 성능 병목 현상이 없는지 프로파일링합니다."
+          },
+          {
+            "id": 5,
+            "title": "통계 데이터 내보내기 및 공유 기능 구현",
+            "description": "통계 데이터를 CSV/PDF로 내보내거나 링크로 공유할 수 있는 기능 구현",
+            "dependencies": [
+              "12.3",
+              "12.4"
+            ],
+            "details": "사용자가 메모 통계 데이터를 CSV 또는 PDF 형식으로 내보낼 수 있는 기능을 구현합니다. 차트 이미지를 PNG로 저장하거나 통계 대시보드를 공유 가능한 링크로 생성하는 기능도 추가합니다. PDF 생성을 위해 jsPDF 라이브러리를, CSV 생성을 위해 파일 시스템 API를 활용합니다. 공유 링크는 고유 ID를 생성하여 Supabase에 저장하고, 접근 권한 설정(공개/비공개)을 구현합니다. 내보낸 데이터에는 생성 날짜와 필터링 조건 등의 메타데이터를 포함합니다.",
+            "status": "pending",
+            "testStrategy": "다양한 데이터셋에 대해 내보내기 기능이 올바르게 작동하는지 테스트합니다. 생성된 CSV/PDF 파일이 모든 데이터를 정확하게 포함하는지 확인합니다. 공유 링크가 올바른 권한 설정으로 작동하는지 테스트합니다. 대용량 데이터 내보내기 시 성능과 메모리 사용량을 모니터링합니다."
+          }
+        ]
+      },
+      {
+        "id": 13,
+        "title": "다크 모드 및 테마 설정 구현",
+        "description": "사용자가 라이트/다크 모드를 선택할 수 있는 테마 설정 기능 구현",
+        "details": "사용자가 라이트 모드와 다크 모드를 선택할 수 있는 테마 설정 기능을 구현합니다. TailwindCSS의 다크 모드 기능을 활용하고, 사용자의 테마 선택을 로컬 스토리지에 저장합니다. 모든 UI 컴포넌트가 다크 모드에서 올바르게 표시되도록 스타일을 적용하고, 테마 전환 시 부드러운 애니메이션을 추가합니다.",
+        "testStrategy": "라이트 모드와 다크 모드에서 모든 UI 컴포넌트가 올바르게 표시되는지 테스트합니다. 테마 전환이 부드럽게 작동하는지 확인합니다. 사용자의 테마 선택이 올바르게 저장되고 복원되는지 테스트합니다. 접근성 표준을 준수하는지 확인합니다.",
+        "priority": "low",
+        "dependencies": [
+          5
+        ],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "TailwindCSS 다크 모드 설정 구성",
+            "description": "TailwindCSS의 다크 모드 기능을 활성화하고 기본 설정 구성하기",
+            "dependencies": [],
+            "details": "tailwind.config.js 파일에서 다크 모드 설정을 구성합니다. darkMode 옵션을 'class'로 설정하여 클래스 기반 다크 모드를 활성화합니다. 기본 색상 팔레트를 라이트/다크 모드에 맞게 확장하고, 다크 모드에서 사용할 색상 변수를 정의합니다. 또한 다크 모드 전환 시 사용할 CSS 변수를 설정합니다.",
+            "status": "pending",
+            "testStrategy": "tailwind.config.js 파일에서 다크 모드 설정이 올바르게 구성되었는지 확인합니다. 기본 색상 팔레트가 라이트/다크 모드에 맞게 정의되었는지 검증합니다."
+          },
+          {
+            "id": 2,
+            "title": "테마 상태 관리 로직 구현",
+            "description": "Zustand를 사용하여 테마 상태를 관리하는 스토어 구현",
+            "dependencies": [
+              "13.1"
+            ],
+            "details": "Zustand를 사용하여 테마 상태(라이트/다크)를 관리하는 스토어를 구현합니다. 테마 상태를 저장하고 변경하는 함수를 제공하며, 시스템 테마 감지 기능도 추가합니다. 사용자의 테마 선택(라이트, 다크, 시스템)을 저장하고 관리하는 로직을 구현합니다. 또한 로컬 스토리지와 연동하여 사용자의 테마 선택을 영구적으로 저장합니다.",
+            "status": "pending",
+            "testStrategy": "테마 상태가 올바르게 변경되는지 테스트합니다. 로컬 스토리지에 테마 설정이 올바르게 저장되고 불러와지는지 확인합니다. 시스템 테마 감지 기능이 정상적으로 작동하는지 테스트합니다."
+          },
+          {
+            "id": 3,
+            "title": "테마 전환 UI 컴포넌트 개발",
+            "description": "사용자가 테마를 전환할 수 있는 토글 버튼 및 설정 UI 구현",
+            "dependencies": [
+              "13.2"
+            ],
+            "details": "사용자가 라이트/다크 모드를 전환할 수 있는 토글 버튼 컴포넌트를 개발합니다. 현재 테마 상태를 시각적으로 표시하고, 클릭 시 테마를 전환하는 기능을 구현합니다. 설정 페이지에 테마 선택 옵션(라이트, 다크, 시스템)을 제공하는 UI를 추가합니다. 각 옵션에 적절한 아이콘과 레이블을 사용하여 직관적인 UX를 제공합니다.",
+            "status": "pending",
+            "testStrategy": "테마 전환 버튼이 시각적으로 현재 테마 상태를 올바르게 표시하는지 확인합니다. 버튼 클릭 시 테마가 정상적으로 전환되는지 테스트합니다. 설정 페이지의 테마 옵션이 올바르게 작동하는지 확인합니다."
+          },
+          {
+            "id": 4,
+            "title": "다크 모드 스타일 적용 및 최적화",
+            "description": "모든 UI 컴포넌트에 다크 모드 스타일 적용 및 최적화",
+            "dependencies": [
+              "13.1",
+              "13.3"
+            ],
+            "details": "모든 UI 컴포넌트가 다크 모드에서 올바르게 표시되도록 스타일을 적용합니다. TailwindCSS의 dark: 접두사를 사용하여 다크 모드 전용 스타일을 정의합니다. 색상 대비를 고려하여 텍스트, 배경, 테두리 등의 스타일을 최적화합니다. 다크 모드에서 가독성을 높이기 위해 그림자와 명암을 조정합니다. 모든 아이콘과 이미지가 다크 모드에서도 잘 보이도록 최적화합니다.",
+            "status": "pending",
+            "testStrategy": "다크 모드에서 모든 UI 컴포넌트가 시각적으로 일관되게 표시되는지 확인합니다. 텍스트 가독성과 색상 대비가 접근성 기준을 충족하는지 테스트합니다. 다양한 화면 크기와 기기에서 다크 모드 스타일이 올바르게 적용되는지 확인합니다."
+          },
+          {
+            "id": 5,
+            "title": "테마 전환 애니메이션 및 사용자 경험 개선",
+            "description": "테마 전환 시 부드러운 애니메이션 추가 및 사용자 경험 개선",
+            "dependencies": [
+              "13.2",
+              "13.3",
+              "13.4"
+            ],
+            "details": "테마 전환 시 부드러운 애니메이션을 추가하여 사용자 경험을 향상시킵니다. CSS 트랜지션을 사용하여 색상, 배경, 그림자 등의 변화가 자연스럽게 이루어지도록 구현합니다. 페이지 로드 시 테마 깜박임(flash of unstyled content)을 방지하는 로직을 추가합니다. 테마 전환 시 성능 최적화를 위해 불필요한 리렌더링을 방지하는 방법을 적용합니다. 사용자의 테마 선택이 모든 페이지와 컴포넌트에 일관되게 적용되도록 합니다.",
+            "status": "pending",
+            "testStrategy": "테마 전환 애니메이션이 부드럽게 작동하는지 확인합니다. 페이지 로드 시 테마 깜박임이 발생하지 않는지 테스트합니다. 테마 전환 시 성능 저하가 없는지 확인합니다. 다양한 브라우저와 기기에서 테마 전환이 일관되게 작동하는지 테스트합니다."
+          }
+        ]
+      },
+      {
+        "id": 14,
+        "title": "키보드 단축키 및 접근성 개선",
+        "description": "키보드 단축키 지원 및 WCAG 2.1 AA 기준을 충족하는 접근성 개선",
+        "details": "키보드 단축키를 지원하여 사용자가 마우스 없이도 애플리케이션을 효율적으로 사용할 수 있도록 합니다. WCAG 2.1 AA 기준을 충족하는 접근성을 구현하고, 스크린 리더 지원, 키보드 네비게이션, 고대비 모드 등을 제공합니다. 모든 UI 컴포넌트에 적절한 ARIA 속성을 추가하고, 색상 대비를 개선합니다.",
+        "testStrategy": "모든 주요 기능이 키보드만으로 사용 가능한지 테스트합니다. 스크린 리더가 올바르게 작동하는지 확인합니다. WCAG 2.1 AA 기준 준수 여부를 평가합니다. 다양한 사용자(시각 장애, 운동 장애 등)의 피드백을 수집하여 접근성을 개선합니다.",
+        "priority": "low",
+        "dependencies": [
+          5,
+          13
+        ],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "키보드 단축키 시스템 설계 및 구현",
+            "description": "애플리케이션 전반에 걸쳐 사용할 키보드 단축키 시스템을 설계하고 구현합니다.",
+            "dependencies": [],
+            "details": "주요 기능에 대한 키보드 단축키를 정의하고 문서화합니다. React 컴포넌트에서 키보드 이벤트를 처리하는 훅(useKeyboardShortcut)을 개발합니다. 단축키 충돌을 방지하기 위한 전략을 수립하고, 사용자가 단축키를 커스터마이징할 수 있는 기능을 구현합니다. 단축키 도움말 모달을 추가하여 사용자가 쉽게 참조할 수 있도록 합니다.",
+            "status": "pending",
+            "testStrategy": "모든 단축키가 의도한 대로 작동하는지 테스트합니다. 다양한 브라우저와 운영 체제에서 호환성을 확인합니다. 단축키 충돌이 없는지 검증합니다. 사용자 정의 단축키 기능이 올바르게 작동하는지 테스트합니다."
+          },
+          {
+            "id": 2,
+            "title": "키보드 네비게이션 및 포커스 관리 개선",
+            "description": "Tab 키를 사용한 키보드 네비게이션과 포커스 관리를 개선하여 키보드만으로 애플리케이션을 완전히 사용할 수 있도록 합니다.",
+            "dependencies": [
+              "14.1"
+            ],
+            "details": "모든 상호작용 가능한 요소(버튼, 링크, 폼 요소 등)에 적절한 tabIndex를 설정합니다. 포커스 순서가 논리적이고 직관적인지 확인합니다. 포커스 스타일을 시각적으로 명확하게 구현하여 현재 포커스된 요소를 쉽게 식별할 수 있도록 합니다. 모달이나 드롭다운 메뉴와 같은 UI 요소에 포커스 트랩을 구현하여 포커스가 해당 컴포넌트 내에 머물도록 합니다.",
+            "status": "pending",
+            "testStrategy": "Tab 키를 사용하여 모든 UI 요소를 순차적으로 탐색할 수 있는지 테스트합니다. 포커스 트랩이 모달과 드롭다운 메뉴에서 올바르게 작동하는지 확인합니다. 키보드 사용자가 모든 기능에 접근할 수 있는지 검증합니다."
+          },
+          {
+            "id": 3,
+            "title": "ARIA 속성 및 의미론적 HTML 구현",
+            "description": "모든 UI 컴포넌트에 적절한 ARIA 속성을 추가하고 의미론적 HTML을 사용하여 스크린 리더 지원을 개선합니다.",
+            "dependencies": [],
+            "details": "모든 UI 컴포넌트를 검토하고 적절한 ARIA 역할, 상태, 속성을 추가합니다. div와 span 대신 의미론적 HTML 요소(nav, article, section 등)를 사용합니다. 동적으로 변경되는 콘텐츠에 aria-live 영역을 구현합니다. 폼 요소에 레이블을 연결하고, 오류 메시지를 aria-describedby로 연결합니다. 아이콘 버튼과 이미지에 대체 텍스트를 제공합니다.",
+            "status": "pending",
+            "testStrategy": "스크린 리더(NVDA, VoiceOver, JAWS)를 사용하여 모든 UI 컴포넌트가 올바르게 읽히는지 테스트합니다. Axe 또는 Wave와 같은 접근성 평가 도구를 사용하여 ARIA 구현을 검증합니다. 의미론적 HTML 구조가 올바른지 확인합니다."
+          },
+          {
+            "id": 4,
+            "title": "색상 대비 및 시각적 접근성 개선",
+            "description": "WCAG 2.1 AA 기준을 충족하는 색상 대비를 구현하고 고대비 모드를 제공합니다.",
+            "dependencies": [
+              "14.3"
+            ],
+            "details": "모든 텍스트와 배경 색상 조합이 WCAG 2.1 AA 기준(일반 텍스트 4.5:1, 큰 텍스트 3:1)을 충족하는지 확인합니다. 색상만으로 정보를 전달하지 않도록 추가적인 시각적 단서(아이콘, 패턴 등)를 제공합니다. 고대비 모드를 구현하여 시각 장애가 있는 사용자를 지원합니다. 텍스트 크기 조정 기능을 추가하여 사용자가 글꼴 크기를 변경할 수 있도록 합니다.",
+            "status": "pending",
+            "testStrategy": "색상 대비 분석 도구를 사용하여 모든 색상 조합이 WCAG 2.1 AA 기준을 충족하는지 테스트합니다. 고대비 모드가 올바르게 작동하는지 확인합니다. 텍스트 크기를 200%까지 확대했을 때 레이아웃이 깨지지 않는지 테스트합니다."
+          },
+          {
+            "id": 5,
+            "title": "접근성 테스트 및 WCAG 2.1 AA 인증",
+            "description": "종합적인 접근성 테스트를 수행하고 WCAG 2.1 AA 기준 준수를 인증합니다.",
+            "dependencies": [
+              "14.1",
+              "14.2",
+              "14.3",
+              "14.4"
+            ],
+            "details": "자동화된 접근성 테스트 도구(Axe, Lighthouse)를 CI/CD 파이프라인에 통합합니다. 다양한 보조 기술(스크린 리더, 스위치 컨트롤 등)을 사용하여 수동 테스트를 수행합니다. 다양한 장애를 가진 사용자(시각, 청각, 운동, 인지 장애)를 고려한 테스트 시나리오를 개발합니다. WCAG 2.1 AA 기준의 모든 성공 기준을 체크리스트로 만들어 검증합니다. 발견된 접근성 문제를 수정하고 재테스트합니다.",
+            "status": "pending",
+            "testStrategy": "자동화된 접근성 테스트와 수동 테스트를 조합하여 WCAG 2.1 AA 기준 준수를 검증합니다. 다양한 장애를 가진 사용자 그룹과 사용성 테스트를 수행합니다. 모든 주요 브라우저와 보조 기술 조합에서 테스트합니다. 접근성 문제를 지속적으로 모니터링하고 개선하는 프로세스를 수립합니다."
+          }
+        ]
+      },
+      {
+        "id": 15,
+        "title": "Vercel 배포 및 CI/CD 파이프라인 구축",
+        "description": "Vercel을 사용한 애플리케이션 배포 및 CI/CD 파이프라인 구축",
+        "details": "Vercel을 사용하여 애플리케이션을 배포하고 CI/CD 파이프라인을 구축합니다. GitHub 연동을 통해 자동 배포를 설정하고, 환경 변수를 Vercel 대시보드에서 관리합니다. Supabase 프로젝트와 Vercel 프로젝트를 연결하고, 도메인 설정 및 SSL 인증서를 구성합니다. 성능 모니터링과 에러 추적을 위한 도구를 설정합니다.",
+        "testStrategy": "다양한 환경(개발, 스테이징, 프로덕션)에서 배포가 올바르게 작동하는지 테스트합니다. CI/CD 파이프라인이 코드 변경에 따라 자동으로 실행되는지 확인합니다. 환경 변수가 각 환경에 올바르게 적용되는지 테스트합니다. 모니터링 도구가 오류를 정확하게 캡처하고 보고하는지 확인합니다.",
+        "priority": "medium",
+        "dependencies": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "status": "pending",
+        "subtasks": []
+      }
+    ],
+    "metadata": {
+      "created": "2025-07-28T05:04:14.206Z",
+      "updated": "2025-07-28T05:04:25.019Z",
+      "description": "Tasks for master context"
+    }
+  }
+}
