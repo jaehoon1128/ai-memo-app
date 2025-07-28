@@ -1,40 +1,118 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# AI 메모 애플리케이션
 
-## Getting Started
+지능적인 메모 작성과 관리를 위한 최신 웹 애플리케이션입니다.
 
-First, run the development server:
+## 🚀 주요 기능
 
+- **AI 기반 메모 작성**: 인공지능이 도와주는 스마트한 메모 작성
+- **태그 기반 관리**: 체계적인 메모 분류 및 검색
+- **실시간 동기화**: 클라우드 기반 실시간 데이터 동기화
+- **반응형 디자인**: 모든 디바이스에서 최적화된 사용자 경험
+
+## 🛠️ 기술 스택
+
+- **Frontend**: Next.js 15 (App Router), React 19, TypeScript
+- **Styling**: Tailwind CSS 4
+- **Database**: Supabase (PostgreSQL)
+- **ORM**: DrizzleORM
+- **State Management**: Zustand
+- **Development**: ESLint, Prettier
+
+## 📦 설치 및 실행
+
+### 1. 저장소 클론
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/jaehoon1128/ai-memo-app.git
+cd ai-memo-app
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. 의존성 설치
+```bash
+npm install
+```
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+### 3. 환경 변수 설정
+`.env.local` 파일을 생성하고 다음 변수들을 설정하세요:
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+```env
+# Supabase 설정
+DATABASE_URL="postgresql://your-username:your-password@your-host:5432/your-database"
+NEXT_PUBLIC_SUPABASE_URL="your-supabase-project-url"
+NEXT_PUBLIC_SUPABASE_ANON_KEY="your-supabase-anon-key"
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+# AI API 설정 (향후 사용)
+OPENAI_API_KEY="your-openai-api-key"
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 4. 개발 서버 실행
+```bash
+npm run dev
+```
 
-## Learn More
+브라우저에서 [http://localhost:3000](http://localhost:3000)을 열어 애플리케이션을 확인하세요.
 
-To learn more about Next.js, take a look at the following resources:
+## 📁 프로젝트 구조
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+```
+src/
+├── app/                 # Next.js App Router
+│   ├── layout.tsx      # 루트 레이아웃
+│   └── page.tsx        # 메인 페이지
+├── components/         # 재사용 가능한 컴포넌트
+│   └── Button.tsx     # 기본 버튼 컴포넌트
+├── lib/               # 유틸리티 및 설정
+│   ├── db/           # 데이터베이스 관련
+│   │   ├── index.ts  # DrizzleORM 클라이언트
+│   │   └── schema.ts # 데이터베이스 스키마
+│   └── stores/       # Zustand 스토어
+│       └── memoStore.ts # 메모 상태 관리
+└── types/            # TypeScript 타입 정의
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🗄️ 데이터베이스 스키마
 
-## Deploy on Vercel
+### Users 테이블
+- 사용자 정보 관리
+- 이메일 기반 인증
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Memos 테이블
+- 메모 제목 및 내용
+- 사용자별 메모 관리
+- 생성/수정 시간 추적
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+### Tags 테이블
+- 태그 이름 관리
+- 사용자별 태그 분류
+
+### MemoTags 테이블
+- 메모와 태그 간의 다대다 관계
+
+## 🔧 개발 명령어
+
+```bash
+# 개발 서버 실행
+npm run dev
+
+# 프로덕션 빌드
+npm run build
+
+# 프로덕션 서버 실행
+npm start
+
+# 린트 검사
+npm run lint
+```
+
+## 🤝 기여하기
+
+1. 이슈를 생성하여 작업할 내용을 알려주세요
+2. `feature/이슈번호` 형식으로 브랜치를 생성하세요
+3. 작업을 완료한 후 Pull Request를 생성하세요
+
+## 📄 라이선스
+
+MIT License
+
+## 📞 문의
+
+프로젝트에 대한 문의사항이 있으시면 이슈를 통해 연락해주세요.
